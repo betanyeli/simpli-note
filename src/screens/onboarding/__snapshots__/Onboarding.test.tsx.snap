@@ -5,11 +5,163 @@ exports[`List Screen Test Should match with snapshot 1`] = `
   style={
     {
       "flex": 1,
+      "padding": 16,
     }
   }
 >
-  <Text>
-    OnboardingScreen
-  </Text>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "grey",
+            "borderRadius": 25,
+            "height": 50,
+            "marginRight": 8,
+            "width": 50,
+          }
+        }
+      />
+      <Text
+        style={
+          {
+            "color": "grey",
+            "fontFamily": "Manrope",
+          }
+        }
+      >
+        Hallo,
+        <Text
+          style={
+            {
+              "color": "grey",
+              "fontFamily": "Manrope",
+              "fontWeight": "600",
+            }
+          }
+        >
+          Beta
+        </Text>
+      </Text>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "opacity": 1,
+          "padding": 4,
+          "width": 40,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#131313",
+            "fontFamily": "IcoMoon-Free",
+            "fontSize": 24,
+          }
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "borderBottomColor": "black",
+        "borderBottomWidth": 2,
+        "margin": 10,
+      }
+    }
+  />
+  <View
+    style={
+      {
+        "padding": 6,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontFamily": "Manrope",
+          "fontSize": 40,
+          "marginHorizontal": 40,
+        }
+      }
+    >
+      Simpli
+    </Text>
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+          "paddingHorizontal": 30,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "fontFamily": "Manrope",
+            "fontSize": 40,
+            "marginRight": 30,
+            "textAlign": "right",
+          }
+        }
+      >
+        Notes 
+      </Text>
+      <Text>
+        /10
+      </Text>
+    </View>
+  </View>
 </View>
 `;
