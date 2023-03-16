@@ -1,43 +1,60 @@
-import { Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import styles from './OnboardingScreen.styles'
+import {View} from 'react-native';
+import React from 'react';
+import styles from './OnboardingScreen.styles';
+import Separator from '../../components/atoms/separator/Separator';
+import Header from '../../components/atoms/header/Header';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import OnboardingTitle from '../../components/atoms/onboarding-title/OnboardingTitle';
+import TagSlider from '../../components/molecules/tag-slider/TagSlider';
+import NotesSlider from '../../components/molecules/notes-slider/NotesSlider';
 
 const OnboardingScreen = () => {
-    return (
-        <View style={styles.container}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+  const data = [
+    {tagName: 'personal', onPress: () => {}},
+    {tagName: 'others', onPress: () => {}},
+    {tagName: 'recipes', onPress: () => {}},
+    {tagName: 'music', onPress: () => {}},
+  ];
 
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <View style={{ width: 50, height: 50, borderRadius: 50 / 2, backgroundColor: 'grey', marginRight: 8 }}></View>
-                    <Text style={{ fontFamily: 'Manrope', color: 'grey' }}>Hallo,
-                        <Text style={{ fontFamily: 'Manrope', color: 'grey', fontWeight: '600' }}>Beta</Text></Text>
-                </View>
+  const notes = [
+    {
+      title: 'personal',
+      onPress: () => {},
+      date: new Date(),
+      body: '1 Lorem ipsum pipipi popopo guruguruguuuu',
+    },
+    {
+      title: 'others',
+      onPress: () => {},
+      date: new Date(),
+      body: '2 Lorem ipsum pipipi popopo guruguruguuuu',
+    },
+    {
+      title: 'recipes',
+      onPress: () => {},
+      date: new Date(),
+      body: '3 Lorem ipsum pipipi popopo guruguruguuuu',
+    },
+    {
+      title: 'music',
+      onPress: () => {},
+      date: new Date(),
+      body: '4 Lorem ipsum pipipi popopo guruguruguuuu',
+    },
+  ];
+  return (
+    <SafeAreaView style={styles.flex}>
+      <View style={[styles.flex, styles.container]}>
+        <Header />
+        <Separator />
+        <OnboardingTitle />
+        <Separator />
+        <TagSlider data={data} />
+        <Separator />
+        <NotesSlider data={notes} />
+      </View>
+    </SafeAreaView>
+  );
+};
 
-                <TouchableOpacity style={{ width: 40, alignItems: 'center', padding: 4 }}>
-                    <Text style={{ fontFamily: 'IcoMoon-Free', fontSize: 24, color: '#131313' }}></Text>
-                </TouchableOpacity>
-
-
-            </View>
-
-            <View style={{ borderBottomColor: 'black', borderBottomWidth: 2, margin: 10 }} />
-
-            <View style={{ padding: 6 }}>
-                <Text style={{ fontFamily: 'Manrope', fontSize: 40, marginHorizontal: 40 }}>Simpli</Text>
-
-                <View style={{
-                    flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', paddingHorizontal: 30
-                }}>
-                    <Text style={{ fontFamily: 'Manrope', textAlign: 'right', fontSize: 40, marginRight: 30 }}>Notes </Text>
-                    <Text>/10</Text>
-                </View>
-
-
-
-            </View >
-        </View >
-    )
-}
-
-export default OnboardingScreen
-
+export default OnboardingScreen;
