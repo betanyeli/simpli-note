@@ -18,28 +18,28 @@ const OnboardingScreen = () => {
 
   const notes = [
     {
-      title: 'personal',
+      title: 'Lorem',
       onPress: () => {},
       date: new Date(),
-      body: '1 Lorem ipsum pipipi popopo guruguruguuuu',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore minima recusandae, facilis similique eum asperiores pariatur eos ipsam fuga aspernatur rem blanditiis! Deleniti nam vero maiores officiis. Fugit, numquam temporibus?',
     },
     {
-      title: 'others',
+      title: 'Others',
       onPress: () => {},
       date: new Date(),
-      body: '2 Lorem ipsum pipipi popopo guruguruguuuu',
+      body: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex',
     },
     {
-      title: 'recipes',
+      title: 'Europe',
       onPress: () => {},
       date: new Date(),
-      body: '3 Lorem ipsum pipipi popopo guruguruguuuu',
+      body: 'Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa',
     },
     {
-      title: 'music',
+      title: 'Pendings',
       onPress: () => {},
       date: new Date(),
-      body: '4 Lorem ipsum pipipi popopo guruguruguuuu',
+      body: 'One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections. The',
     },
   ];
   return (
@@ -47,8 +47,7 @@ const OnboardingScreen = () => {
       <View style={[styles.flex, styles.container]}>
         <Header />
         <Separator />
-        <OnboardingTitle />
-        <Separator />
+        <OnboardingTitle total={data.length} />
         <TagSlider data={data} />
         <Separator />
         <NotesSlider data={notes} />

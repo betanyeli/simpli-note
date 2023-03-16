@@ -2,13 +2,17 @@ import {View, Text} from 'react-native';
 import React from 'react';
 import styles from './OnboardingTitle.styles';
 
-const OnboardingTitle = () => {
+type OnboardingTitleProps = {
+  total?: number;
+};
+
+const OnboardingTitle = ({total}: OnboardingTitleProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.firstLabel}>Simpli</Text>
       <View style={styles.labelContainer}>
         <Text style={styles.secondLabel}>Notes </Text>
-        <Text>/10</Text>
+        {total && <Text>{`${total}/`}</Text>}
       </View>
     </View>
   );

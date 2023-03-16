@@ -22,7 +22,7 @@ const TagSlider = ({data}: TagSliderProps) => {
           </TouchableOpacity>
         )}
         horizontal
-        contentContainerStyle={{flexGrow: 2}}
+        contentContainerStyle={{flexGrow: 2, paddingBottom: 6}}
         showsHorizontalScrollIndicator={false}
       />
     </View>
