@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   item: {
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 4,
     paddingHorizontal: 10,
   },
-  itemTitle: {fontSize: 20},
+  itemTitle: { fontSize: 20 },
 });
 
 export default styles;

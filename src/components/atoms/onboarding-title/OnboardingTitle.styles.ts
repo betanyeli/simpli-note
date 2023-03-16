@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     padding: 6,
   },
-  firstLabel: {fontFamily: 'Manrope', fontSize: 40, marginHorizontal: 40},
+  firstLabel: { fontFamily: 'Manrope', fontSize: 40, marginHorizontal: 40 },
   labelContainer: {
     flexDirection: 'row',
     alignItems: 'center',
