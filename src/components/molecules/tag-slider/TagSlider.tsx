@@ -1,4 +1,4 @@
-import {Text, FlatList, TouchableOpacity, View} from 'react-native';
+import { Text, FlatList, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import styles from './TagSlider.styles';
 
@@ -11,18 +11,18 @@ type TagSliderProps = {
   data: Tag[];
 };
 
-const TagSlider = ({data}: TagSliderProps) => {
+const TagSlider = ({ data }: TagSliderProps) => {
   return (
-    <View style={{flexShrink: 2}}>
+    <View style={{ flexShrink: 2 }}>
       <FlatList
         data={data}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <TouchableOpacity onPress={item.onPress} style={styles.item}>
             <Text style={styles.itemTitle}>{`#${item.tagName}`}</Text>
           </TouchableOpacity>
         )}
         horizontal
-        contentContainerStyle={{flexGrow: 2, paddingBottom: 6}}
+        contentContainerStyle={{ flexGrow: 2, paddingBottom: 6 }}
         showsHorizontalScrollIndicator={false}
       />
     </View>

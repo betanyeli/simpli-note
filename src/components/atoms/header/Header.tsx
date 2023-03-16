@@ -1,8 +1,12 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import styles from './Header.styles';
 
-const Header = () => {
+type HeaderProps = {
+  onPress: () => void;
+};
+
+const Header = ({ onPress }: HeaderProps) => {
   return (
     <View style={styles.container}>
       <View style={styles.greetingsContainer}>
@@ -13,7 +17,7 @@ const Header = () => {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity onPress={onPress} style={styles.button}>
         <Text style={styles.buttonLabel}></Text>
       </TouchableOpacity>
     </View>

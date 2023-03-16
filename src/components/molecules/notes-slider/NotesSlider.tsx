@@ -1,8 +1,8 @@
-import {Text, FlatList, TouchableOpacity, View} from 'react-native';
+import { Text, FlatList, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import styles from './NotesSlider.styles';
 import Separator from '../../atoms/separator/Separator';
-import {leadingZero} from '../../../helpers/leadingZero';
+import { leadingZero } from '../../../helpers/leadingZero';
 
 type Note = {
   title: string;
@@ -16,18 +16,16 @@ type NotesSliderProps = {
   data: Note[];
 };
 
-const NotesSlider = ({data}: NotesSliderProps) => {
+const NotesSlider = ({ data }: NotesSliderProps) => {
   return (
     <View style={styles.container}>
       <FlatList
         contentContainerStyle={styles.contentContainer}
         data={data}
         keyExtractor={(item: Note) => item.title}
-        renderItem={({item, index}) => (
+        renderItem={({ item, index }) => (
           <TouchableOpacity onPress={item.onPress} style={styles.item}>
-            {index + 1 > 0 && (
-              <Text style={styles.index}>{`${leadingZero(index + 1)}/`}</Text>
-            )}
+            {index + 1 > 0 && <Text style={styles.index}>{`${leadingZero(index + 1)}/`}</Text>}
             <View style={styles.titleContainer}>
               <Text style={styles.itemTitle}>{item.title}</Text>
               <Text style={styles.iconItemTitle}></Text>
