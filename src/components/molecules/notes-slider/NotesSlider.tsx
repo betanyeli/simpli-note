@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './NotesSlider.styles';
 import Separator from '../../atoms/separator/Separator';
 import { leadingZero } from '../../../helpers/leadingZero';
+import NotesSliderFooter from './NotesSliderFooter';
 
 type Note = {
   title: string;
@@ -14,9 +15,10 @@ type Note = {
 
 type NotesSliderProps = {
   data: Note[];
+  clearOnPress: () => void;
 };
 
-const NotesSlider = ({ data }: NotesSliderProps) => {
+const NotesSlider = ({ data, clearOnPress }: NotesSliderProps) => {
   return (
     <View style={styles.container}>
       <FlatList
@@ -32,10 +34,11 @@ const NotesSlider = ({ data }: NotesSliderProps) => {
             </View>
 
             <Text numberOfLines={2}>{item.body}</Text>
+            <Separator />
           </TouchableOpacity>
         )}
-        ItemSeparatorComponent={() => <Separator />}
         showsVerticalScrollIndicator={false}
+        ListFooterComponent={<NotesSliderFooter onPress={clearOnPress} />}
       />
     </View>
   );
