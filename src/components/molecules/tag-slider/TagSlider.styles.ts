@@ -13,6 +13,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   itemTitle: { fontSize: 20 },
+  container: { flexShrink: 2 },
+  contentContainer: { flexGrow: 2, paddingBottom: 6 },
 });
 
 export default styles;

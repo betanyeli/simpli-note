@@ -13,7 +13,7 @@ type TagSliderProps = {
 
 const TagSlider = ({ data }: TagSliderProps) => {
   return (
-    <View style={{ flexShrink: 2 }}>
+    <View style={styles.container}>
       <FlatList
         data={data}
         renderItem={({ item }) => (
@@ -22,7 +22,7 @@ const TagSlider = ({ data }: TagSliderProps) => {
           </TouchableOpacity>
         )}
         horizontal
-        contentContainerStyle={{ flexGrow: 2, paddingBottom: 6 }}
+        contentContainerStyle={styles.contentContainer}
         showsHorizontalScrollIndicator={false}
       />
     </View>
