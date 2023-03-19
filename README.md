@@ -25,6 +25,7 @@ As "simpli" as its name. Use 💫Simpli-note💫  to quickly create your notes..
   - Modal
   - Tags
   - Snackbar
+  - Button
 - Unit test (Snapshots) V1
 
 
@@ -34,6 +35,7 @@ As "simpli" as its name. Use 💫Simpli-note💫  to quickly create your notes..
 - Pull to refresh
 - Skeleton or loaders
 - Android icons support.
+- Refresh after clear async storage
 
 ## 🛠 Tech Stack 🛠
 - React Native v0.71.4
@@ -42,14 +44,46 @@ As "simpli" as its name. Use 💫Simpli-note💫  to quickly create your notes..
 - TypeScript v4.8.4
 - Jest
 - React native testing library
+- React custom hooks & context
 
 ## 🖌 UI Inspiration
 - Logo: Inspired in *Mainteny* 🇩🇪 assets and builded in Figma.
 - SplashScreen: Inspired in *Mainteny* 🇩🇪 assets and builded in Figma.
 - Color palette: *Mainteny* 🇩🇪 UI Colors.
+- FontFamily: *Mainteny* 🇩🇪 font - Google Font *Manrope*
 - UI [Notes Mobile App](https://dribbble.com/shots/20654814-Notes-Mobile-IOS-App)
 
+##  📁 Folder structure
 
+```
+└── src/
+    ├── assets/
+    │   └── fonts
+    └── components/
+        ├── atoms/
+        │   ├── button
+        │   ├── header
+        │   ├── onboarding-title
+        │   ├── separator
+        │   ├── snackbar
+        │   └── textArea
+        ├── molecules/
+        │   ├── confirmation-modal
+        │   ├── notes-slider
+        │   └── tag-slider
+        ├── dummyData
+        ├── helpers
+        ├── hooks/
+        │   ├── service
+        │   └── theme
+        ├── navigation
+        ├── screens/
+        │   ├── add-note
+        │   ├── detail-note
+        │   └── onboarding
+        ├── wrapper.tsx
+        └── styles
+```
 
 ## 🚀 Run Locally
 
@@ -69,6 +103,10 @@ Install dependencies
 
 ```bash
   yarn install
+```
+
+```bash
+  cd ios && pod install
 ```
 
 Start the server
@@ -113,7 +151,7 @@ To generate APK of this project run
   --bundle-output android/app/src/main/assets/index.android.bundle \
   --assets-dest android/app/src/main/res/
 ```
-and then
+discard generated changes, and then
 
 ```bash
   cd android && ./gradlew assembleRelease
