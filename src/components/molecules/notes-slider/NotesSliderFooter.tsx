@@ -5,11 +5,21 @@ import Button, { ButtonVariant } from '../../atoms/button/Button';
 
 type NotesSliderFooterProps = {
   onPress: () => void;
+  data: any;
+  goToAddNotes: () => void;
 };
-const NotesSliderFooter = ({ onPress }: NotesSliderFooterProps) => {
+const NotesSliderFooter = ({ onPress, data, goToAddNotes }: NotesSliderFooterProps) => {
   return (
     <View style={styles.footer}>
-      <Button variant={ButtonVariant.DANGER} label="Clear" onPress={onPress} icon="" />
+      {data ? (
+        <Button variant={ButtonVariant.DANGER} label="Clear" onPress={onPress} icon="" />
+      ) : (
+        <Button
+          label="Create a new note"
+          variant={ButtonVariant.PRIMARY}
+          onPress={goToAddNotes}
+        />
+      )}
     </View>
   );
 };

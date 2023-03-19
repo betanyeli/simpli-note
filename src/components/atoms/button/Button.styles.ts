@@ -29,7 +29,7 @@ export const styles = (theme: any) =>
     },
     opacity: { opacity: 0.6 },
     danger: {
-      backgroundColor: 'red',
+      backgroundColor: '#ff4444',
     },
   });
 
