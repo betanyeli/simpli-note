@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './Button.styles';
 import useThemedStyles from '../../../hooks/theme/useThemedStyles';
 import useTheme from '../../../hooks/theme/useTheme';
+import isIOS from '../../../helpers/platforms';
 
 export enum ButtonVariant {
   PRIMARY,
@@ -37,7 +38,7 @@ const Button = ({
     >
       {!loading ? (
         <>
-          <Text style={style.icon}>{icon}</Text>
+          {isIOS && <Text style={style.icon}>{icon}</Text>}
           <Text style={style.label}>{label}</Text>
         </>
       ) : (

@@ -1,35 +1,44 @@
-import { View, Button as RNButton } from 'react-native';
+import { View } from 'react-native';
 import React, { useEffect } from 'react';
 import styles from './AddNoteScreen.styles';
 import TextArea from '../../components/atoms/textArea/TextArea';
 import Button, { ButtonVariant } from '../../components/atoms/button/Button';
 import useThemedStyles from '../../hooks/theme/useThemedStyles';
-import useNotes from '../../hooks/services/useNotes';
+import useNotes, { InfoResponse } from '../../hooks/services/useNotes';
+import Snackbar from '../../components/atoms/snackbar/Snackbar';
+import isIOS from '../../helpers/platforms';
 
 const AddNoteScreen = ({ navigation }: any) => {
   const style = useThemedStyles(styles);
   const {
     emptyInputs,
     writeItemToStorage,
-    readItemFromStorage,
     title,
     setTitle,
     body,
     setBody,
     resetInputs,
     loading,
+    showInfoResponse,
   } = useNotes();
+
+  const snackbarLabel =
+    showInfoResponse === InfoResponse.SUCCESS ? 'Note successfully saved' : ' Try again';
+  const paddingBottomIos = isIOS && { bottom: 4 };
 
   useEffect(() => {
     navigation?.setOptions({
-      headerLeft: () => <RNButton onPress={saveAndGoBack} title="Back" />,
+      headerLeft: () => (
+        <View style={paddingBottomIos}>
+          <Button onPress={() => saveAndGoBack()} label="Back" variant={ButtonVariant.PRIMARY} />
+        </View>
+      ),
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigation]);
 
   const saveAndGoBack = async () => {
-    !emptyInputs && (await writeItemToStorage());
-    readItemFromStorage();
+    await writeItemToStorage();
     navigation.goBack();
   };
 
@@ -74,6 +83,8 @@ const AddNoteScreen = ({ navigation }: any) => {
           disabled={emptyInputs || loading}
         />
       </View>
+
+      {showInfoResponse && <Snackbar showInfoResponse={showInfoResponse} label={snackbarLabel} />}
     </View>
   );
 };

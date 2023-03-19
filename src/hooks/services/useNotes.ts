@@ -7,23 +7,33 @@ export type Note = {
   title: string;
   body: string;
   date: Date;
-  onPress: () => void;
 };
+
+export enum InfoResponse {
+  SUCCESS = 'SUCCESS',
+  ERROR = 'ERROR',
+}
 
 const useNotes = () => {
   const { setItem, getItem } = useAsyncStorage('@notes');
   const [newData, setNewData] = useState<Note[]>([
     {
       id: 1,
-      title: 'init',
-      body: 'lorem..',
+      title: 'Simpli Note',
+      body: 'Add a custom note... ',
       date: new Date(),
-      onPress: () => {},
     },
   ]);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [loading, setLoading] = useState<boolean>(false);
+  const [showInfoResponse, setShowInfoResponse] = useState<InfoResponse | undefined>();
+
+  /**
+   *
+   *TO DO
+   * Refactor this function ‼️
+   */
 
   const writeItemToStorage = async () => {
     try {
@@ -33,16 +43,18 @@ const useNotes = () => {
         title,
         body,
         date: new Date(),
-        onPress: () => {},
       };
       const mergedItems = JSON.stringify([...newData, parsedItems]);
-      newData && (await setItem(mergedItems));
-      resetInputs();
+      newData && !emptyInputs && (await setItem(mergedItems));
+      setShowInfoResponse(InfoResponse.SUCCESS);
     } catch (error) {
+      console.log(error);
+      setShowInfoResponse(InfoResponse.ERROR);
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 600);
+        resetInputs();
+      }, 300);
     }
   };
 
@@ -62,7 +74,7 @@ const useNotes = () => {
     try {
       await AsyncStorage.clear();
     } catch (e) {
-      // clear error
+      return e;
     }
   };
 
@@ -83,6 +95,7 @@ const useNotes = () => {
     setBody,
     clearAll,
     newData,
+    showInfoResponse,
   };
 };
 
