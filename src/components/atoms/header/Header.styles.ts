@@ -16,8 +16,8 @@ const styles = StyleSheet.create({
   },
   greetingsPrefix: { fontFamily: 'Manrope', color: 'grey', fontSize: 16 },
   greetingsName: { fontFamily: 'Manrope', color: 'grey', fontWeight: '700' },
-  button: { width: 40, alignItems: 'center', padding: 4 },
-  buttonLabel: { fontFamily: 'IcoMoon-Free', fontSize: 24, color: '#131313' },
+  button: { alignItems: 'center', padding: 4 },
+  buttonLabel: { fontFamily: 'Manrope', fontSize: 16, color: '#131313' },
 });
 
 export default styles;

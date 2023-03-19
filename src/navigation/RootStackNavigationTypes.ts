@@ -1,5 +1,7 @@
+import { Note } from '../hooks/services/useNotes';
+
 export type RootStackParamList = {
   Onboarding: undefined;
-  ListNotes: undefined;
   AddNote: undefined;
+  DetailNote: { note: Note };
 };

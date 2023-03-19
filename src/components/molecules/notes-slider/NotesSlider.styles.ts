@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   index: { fontFamily: 'Manrope', fontSize: 20, color: 'grey' },
   titleContainer: { flexDirection: 'row', justifyContent: 'space-between' },
   iconItemTitle: { fontFamily: 'icomoon-free', fontSize: 20 },
-  footer: { alignItems: 'flex-end' },
+  footer: { alignItems: 'center' },
 });
 
 export default styles;

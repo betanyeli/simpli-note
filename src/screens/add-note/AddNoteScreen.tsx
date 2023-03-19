@@ -1,72 +1,40 @@
-import { View, Text } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import { View, Button as RNButton } from 'react-native';
+import React, { useEffect } from 'react';
 import styles from './AddNoteScreen.styles';
 import TextArea from '../../components/atoms/textArea/TextArea';
 import Button, { ButtonVariant } from '../../components/atoms/button/Button';
 import useThemedStyles from '../../hooks/theme/useThemedStyles';
-import { useAsyncStorage } from '@react-native-async-storage/async-storage';
+import useNotes from '../../hooks/services/useNotes';
 
-export type Note = {
-  title: string;
-  body: string;
-  date: Date;
-  onPress: () => void;
-};
-
-const AddNoteScreen = () => {
+const AddNoteScreen = ({ navigation }: any) => {
   const style = useThemedStyles(styles);
-  const { setItem } = useAsyncStorage('@notes');
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const [loading, setLoading] = useState<boolean>(false);
-  const emptyInputs = title === '' && body === '';
-
-  const resetInputs = () => {
-    setTitle('');
-    setBody('');
-  };
-
-  const [newData, setNewData] = useState({
-    title: 'Lorem',
-    onPress: () => {},
-    date: new Date(),
-    body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore minima recusandae, facilis similique eum asperiores pariatur eos ipsam fuga aspernatur rem blanditiis! Deleniti nam vero maiores officiis. Fugit, numquam temporibus?',
-  });
-  const { getItem } = useAsyncStorage('@notes');
-
-  const readItemFromStorage = async () => {
-    const data = await getItem();
-    data && setNewData(JSON.parse(data));
-    console.log('fata', data);
-  };
+  const {
+    emptyInputs,
+    writeItemToStorage,
+    readItemFromStorage,
+    title,
+    setTitle,
+    body,
+    setBody,
+    resetInputs,
+    loading,
+  } = useNotes();
 
   useEffect(() => {
-    readItemFromStorage();
+    navigation?.setOptions({
+      headerLeft: () => <RNButton onPress={saveAndGoBack} title="Back" />,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [navigation]);
 
-  const writeItemToStorage = async () => {
-    try {
-      const parsedItems = {
-        title,
-        body,
-        date: new Date(),
-        onPress: () => {},
-      };
-      const mergedItems = JSON.stringify([newData, parsedItems]);
-      console.log('se muroo', mergedItems);
-      await setItem(mergedItems);
-      resetInputs();
-    } catch (error) {
-      console.log('error', error);
-    } finally {
-      setLoading(false);
-    }
+  const saveAndGoBack = async () => {
+    !emptyInputs && (await writeItemToStorage());
+    readItemFromStorage();
+    navigation.goBack();
   };
 
   return (
     <View style={style.container}>
-      <Text>AddNoteScreen</Text>
       <TextArea
         maxLength={50}
         maxCharLimit={50}
@@ -91,11 +59,11 @@ const AddNoteScreen = () => {
       />
       <View style={style.buttonContainer}>
         <Button
-          label={'Save note'}
+          label={!loading ? 'Save note' : 'Saving note'}
           onPress={() => writeItemToStorage()}
           variant={ButtonVariant.PRIMARY}
           icon={''}
-          disabled={emptyInputs}
+          disabled={emptyInputs || loading}
           loading={loading}
         />
         <Button
@@ -103,7 +71,7 @@ const AddNoteScreen = () => {
           onPress={resetInputs}
           variant={ButtonVariant.PRIMARY}
           icon={''}
-          disabled={emptyInputs}
+          disabled={emptyInputs || loading}
         />
       </View>
     </View>
