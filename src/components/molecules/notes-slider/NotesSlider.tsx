@@ -6,6 +6,8 @@ import { leadingZero } from '../../../helpers/leadingZero';
 import NotesSliderFooter from './NotesSliderFooter';
 import useNotes, { Note } from '../../../hooks/services/useNotes';
 import { useNavigation } from '@react-navigation/native';
+import TagSlider from '../tag-slider/TagSlider';
+import tags from '../../../dummyData/tags';
 
 type NotesSliderProps = {
   data: any;
@@ -13,7 +15,7 @@ type NotesSliderProps = {
 };
 
 const NotesSlider = ({ data, goToAddNotes }: NotesSliderProps) => {
-  const { readItemFromStorage, loading, clearAll } = useNotes();
+  const { clearAll } = useNotes();
   const navigation = useNavigation();
 
   return (
@@ -23,23 +25,37 @@ const NotesSlider = ({ data, goToAddNotes }: NotesSliderProps) => {
         data={data}
         keyExtractor={(item: Note) => String(item?.id)}
         renderItem={({ item, index }) => (
-          <TouchableOpacity onPress={() => navigation.navigate('DetailNote' as never, {
-            note: item
-          } as never)} style={styles.item}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate(
+                'DetailNote' as never,
+                {
+                  note: item,
+                } as never
+              )
+            }
+            style={styles.item}
+          >
             {index + 1 > 0 && <Text style={styles.index}>{`${leadingZero(index + 1)}/`}</Text>}
             <View style={styles.titleContainer}>
-              <Text numberOfLines={1} style={styles.itemTitle}>{item.title || 'Not found'}</Text>
+              <Text numberOfLines={1} style={styles.itemTitle}>
+                {item.title || 'Not found'}
+              </Text>
               <Text style={styles.iconItemTitle}></Text>
             </View>
-            <Text numberOfLines={3} style={styles.body}>{item?.body}</Text>
+            <Text numberOfLines={3} style={styles.body}>
+              {item?.body}
+            </Text>
             <Separator />
           </TouchableOpacity>
         )}
-        // onRefresh={async () => await readItemFromStorage()}
-        // refreshing={loading || false}
         extraData={data}
         showsVerticalScrollIndicator={false}
-        ListFooterComponent={<NotesSliderFooter onPress={clearAll} data={data} goToAddNotes={goToAddNotes} />}
+        ListFooterComponent={
+          <NotesSliderFooter onPress={clearAll} data={data} goToAddNotes={goToAddNotes} />
+        }
+        ListHeaderComponent={<TagSlider data={tags} />}
+        stickyHeaderIndices={[0]}
       />
     </View>
   );

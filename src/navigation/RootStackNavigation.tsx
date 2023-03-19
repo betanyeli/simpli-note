@@ -4,12 +4,9 @@ import OnboardingScreen from '../screens/onboarding/OnboardingScreen';
 import { RootStackParamList } from './RootStackNavigationTypes';
 import AddNoteScreen from '../screens/add-note/AddNoteScreen';
 import DetailNoteScreen from '../screens/detail-note/DetailNoteScreen';
-import { Button } from 'react-native';
-import useNotes from '../hooks/services/useNotes';
 
 function RootStackNavigation() {
   const RootStack = createNativeStackNavigator<RootStackParamList>();
-  const { writeItemToStorage } = useNotes();
   return (
     <RootStack.Navigator>
       <RootStack.Screen
@@ -17,12 +14,16 @@ function RootStackNavigation() {
         name="Onboarding"
         component={OnboardingScreen}
       />
-      <RootStack.Screen name="AddNote" component={AddNoteScreen} options={({ navigation, route }) => ({
-        headerLeft: () => (
-          <Button title="Back?" />
-        ),
-      })} />
-      <RootStack.Screen name="DetailNote" component={DetailNoteScreen} />
+      <RootStack.Screen
+        name="AddNote"
+        component={AddNoteScreen}
+        options={{ title: 'Add a Simpli Note', headerTitleStyle: { fontFamily: 'Manrope' } }}
+      />
+      <RootStack.Screen
+        name="DetailNote"
+        component={DetailNoteScreen}
+        options={{ title: 'Details' }}
+      />
     </RootStack.Navigator>
   );
 }

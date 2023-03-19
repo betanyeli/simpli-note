@@ -5,10 +5,8 @@ import Separator from '../../components/atoms/separator/Separator';
 import Header from '../../components/atoms/header/Header';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import OnboardingTitle from '../../components/atoms/onboarding-title/OnboardingTitle';
-import TagSlider from '../../components/molecules/tag-slider/TagSlider';
 import NotesSlider from '../../components/molecules/notes-slider/NotesSlider';
 import useNotes from '../../hooks/services/useNotes';
-import tags from '../../dummyData/tags';
 
 const OnboardingScreen = ({ navigation }: { navigation: any }) => {
   const { newData, readItemFromStorage } = useNotes();
@@ -28,7 +26,6 @@ const OnboardingScreen = ({ navigation }: { navigation: any }) => {
         <Header onPress={goToAddNotes} />
         <Separator />
         <OnboardingTitle total={newData.length} />
-        <TagSlider data={tags} />
         <Separator />
         <NotesSlider data={newData} goToAddNotes={goToAddNotes} />
       </View>

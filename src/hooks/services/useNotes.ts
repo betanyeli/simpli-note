@@ -10,8 +10,8 @@ export type Note = {
 };
 
 export enum InfoResponse {
-  SUCCESS,
-  ERROR,
+  SUCCESS = 'SUCCESS',
+  ERROR = 'ERROR',
 }
 
 const useNotes = () => {
@@ -29,6 +29,12 @@ const useNotes = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [showInfoResponse, setShowInfoResponse] = useState<InfoResponse | undefined>();
 
+  /**
+   *
+   *TO DO
+   * Refactor this function ‼️
+   */
+
   const writeItemToStorage = async () => {
     try {
       setLoading(true);
@@ -40,11 +46,14 @@ const useNotes = () => {
       };
       const mergedItems = JSON.stringify([...newData, parsedItems]);
       newData && !emptyInputs && (await setItem(mergedItems));
+      setShowInfoResponse(InfoResponse.SUCCESS);
     } catch (error) {
       console.log(error);
+      setShowInfoResponse(InfoResponse.ERROR);
     } finally {
       setTimeout(() => {
         setLoading(false);
+        resetInputs();
       }, 300);
     }
   };
