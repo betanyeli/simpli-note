@@ -1,29 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import AsyncStorage, { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { generateId } from '../../helpers/generateId';
+import { useNavigation } from '@react-navigation/native';
 
 export type Note = {
   id: number;
   title: string;
   body: string;
   date: Date;
-  onPress: () => void;
 };
+
+export enum InfoResponse {
+  SUCCESS,
+  ERROR,
+}
 
 const useNotes = () => {
   const { setItem, getItem } = useAsyncStorage('@notes');
+  const navigation = useNavigation();
   const [newData, setNewData] = useState<Note[]>([
     {
       id: 1,
-      title: 'init',
-      body: 'lorem..',
+      title: 'Simpli Note',
+      body: 'Add a custom note... ',
       date: new Date(),
-      onPress: () => {},
     },
   ]);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [loading, setLoading] = useState<boolean>(false);
+  const [showInfoResponse, setShowInfoResponse] = useState<InfoResponse | undefined>();
 
   const writeItemToStorage = async () => {
     try {
@@ -33,16 +39,20 @@ const useNotes = () => {
         title,
         body,
         date: new Date(),
-        onPress: () => {},
       };
       const mergedItems = JSON.stringify([...newData, parsedItems]);
+      console.log(mergedItems);
       newData && (await setItem(mergedItems));
-      resetInputs();
+      //setShowInfoResponse(InfoResponse.SUCCESS);
     } catch (error) {
+      //setShowInfoResponse(InfoResponse.ERROR);
+      console.log(error);
     } finally {
       setTimeout(() => {
         setLoading(false);
-      }, 600);
+      }, 300);
+
+      // navigation.goBack();
     }
   };
 
@@ -62,7 +72,7 @@ const useNotes = () => {
     try {
       await AsyncStorage.clear();
     } catch (e) {
-      // clear error
+      return e;
     }
   };
 
@@ -83,6 +93,7 @@ const useNotes = () => {
     setBody,
     clearAll,
     newData,
+    showInfoResponse,
   };
 };
 

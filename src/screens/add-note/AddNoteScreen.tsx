@@ -1,5 +1,5 @@
-import { View, Button as RNButton } from 'react-native';
-import React, { useEffect } from 'react';
+import { View } from 'react-native';
+import React from 'react';
 import styles from './AddNoteScreen.styles';
 import TextArea from '../../components/atoms/textArea/TextArea';
 import Button, { ButtonVariant } from '../../components/atoms/button/Button';
@@ -11,7 +11,6 @@ const AddNoteScreen = ({ navigation }: any) => {
   const {
     emptyInputs,
     writeItemToStorage,
-    readItemFromStorage,
     title,
     setTitle,
     body,
@@ -20,24 +19,12 @@ const AddNoteScreen = ({ navigation }: any) => {
     loading,
   } = useNotes();
 
-  useEffect(() => {
-    navigation?.setOptions({
-      headerLeft: () => <RNButton onPress={saveAndGoBack} title="Back" />,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [navigation]);
-
-  const saveAndGoBack = async () => {
-    !emptyInputs && (await writeItemToStorage());
-    readItemFromStorage();
-    navigation.goBack();
-  };
 
   return (
     <View style={style.container}>
       <TextArea
-        maxLength={50}
-        maxCharLimit={50}
+        maxLength={25}
+        maxCharLimit={25}
         style={[style.textAreaTitle, style.textArea]}
         defaultCharCount={0}
         placeholderTextColor="grey"

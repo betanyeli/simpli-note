@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 6,
+    paddingHorizontal: 6,
   },
   firstLabel: { fontFamily: 'Manrope', fontSize: 40, marginHorizontal: 40 },
   labelContainer: {

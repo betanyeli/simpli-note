@@ -5,6 +5,7 @@ import Separator from '../../atoms/separator/Separator';
 import { leadingZero } from '../../../helpers/leadingZero';
 import NotesSliderFooter from './NotesSliderFooter';
 import useNotes, { Note } from '../../../hooks/services/useNotes';
+import { useNavigation } from '@react-navigation/native';
 
 type NotesSliderProps = {
   data: any;
@@ -13,6 +14,7 @@ type NotesSliderProps = {
 
 const NotesSlider = ({ data, goToAddNotes }: NotesSliderProps) => {
   const { readItemFromStorage, loading, clearAll } = useNotes();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -21,18 +23,20 @@ const NotesSlider = ({ data, goToAddNotes }: NotesSliderProps) => {
         data={data}
         keyExtractor={(item: Note) => String(item?.id)}
         renderItem={({ item, index }) => (
-          <TouchableOpacity onPress={item.onPress} style={styles.item}>
+          <TouchableOpacity onPress={() => navigation.navigate('DetailNote' as never, {
+            note: item
+          } as never)} style={styles.item}>
             {index + 1 > 0 && <Text style={styles.index}>{`${leadingZero(index + 1)}/`}</Text>}
             <View style={styles.titleContainer}>
-              <Text style={styles.itemTitle}>{item?.title}</Text>
+              <Text numberOfLines={1} style={styles.itemTitle}>{item.title || 'Not found'}</Text>
               <Text style={styles.iconItemTitle}></Text>
             </View>
-            <Text numberOfLines={2}>{item?.body}</Text>
+            <Text numberOfLines={3}>{item?.body}</Text>
             <Separator />
           </TouchableOpacity>
         )}
-        onRefresh={() => readItemFromStorage()}
-        refreshing={loading}
+        onRefresh={async () => await readItemFromStorage()}
+        refreshing={loading || false}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={<NotesSliderFooter onPress={clearAll} data={data} goToAddNotes={goToAddNotes} />}
       />

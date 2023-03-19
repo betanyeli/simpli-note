@@ -8,13 +8,7 @@ import OnboardingTitle from '../../components/atoms/onboarding-title/OnboardingT
 import TagSlider from '../../components/molecules/tag-slider/TagSlider';
 import NotesSlider from '../../components/molecules/notes-slider/NotesSlider';
 import useNotes from '../../hooks/services/useNotes';
-
-const data = [
-  { tagName: 'personal', onPress: () => { } },
-  { tagName: 'others', onPress: () => { } },
-  { tagName: 'recipes', onPress: () => { } },
-  { tagName: 'music', onPress: () => { } },
-];
+import tags from '../../dummyData/tags';
 
 const OnboardingScreen = ({ navigation }: { navigation: any }) => {
   const { newData, readItemFromStorage } = useNotes();
@@ -26,7 +20,7 @@ const OnboardingScreen = ({ navigation }: { navigation: any }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigation]);
 
-  const goToAddNotes = () => navigation.navigate('AddNote')
+  const goToAddNotes = () => navigation.navigate('AddNote');
 
   return (
     <SafeAreaView style={styles.flex}>
@@ -34,7 +28,7 @@ const OnboardingScreen = ({ navigation }: { navigation: any }) => {
         <Header onPress={goToAddNotes} />
         <Separator />
         <OnboardingTitle total={newData.length} />
-        <TagSlider data={data} />
+        <TagSlider data={tags} />
         <Separator />
         <NotesSlider data={newData} goToAddNotes={goToAddNotes} />
       </View>

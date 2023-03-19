@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   },
   itemTitle: { fontSize: 20 },
   container: { flexShrink: 2 },
-  contentContainer: { flexGrow: 2, paddingBottom: 6 },
+  contentContainer: { flexGrow: 2, paddingBottom: 20 },
 });
 
 export default styles;
