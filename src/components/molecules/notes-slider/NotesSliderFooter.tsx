@@ -23,7 +23,7 @@ const NotesSliderFooter = ({ onPress, data, goToAddNotes }: NotesSliderFooterPro
   return (
     <View style={styles.footer}>
       {data.length > 1 ? (
-        <Button variant={ButtonVariant.DANGER} label="Clear all the notes" onPress={() => setIsModalVisible(true)} icon="" />
+        <Button variant={ButtonVariant.DANGER} label="Clear all the notes" onPress={() => setIsModalVisible(true)} icon={""} />
       ) : (
         <Button
           label="Create a new note"

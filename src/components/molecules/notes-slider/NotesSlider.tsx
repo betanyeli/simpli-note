@@ -31,12 +31,13 @@ const NotesSlider = ({ data, goToAddNotes }: NotesSliderProps) => {
               <Text numberOfLines={1} style={styles.itemTitle}>{item.title || 'Not found'}</Text>
               <Text style={styles.iconItemTitle}></Text>
             </View>
-            <Text numberOfLines={3}>{item?.body}</Text>
+            <Text numberOfLines={3} style={styles.body}>{item?.body}</Text>
             <Separator />
           </TouchableOpacity>
         )}
-        onRefresh={async () => await readItemFromStorage()}
-        refreshing={loading || false}
+        // onRefresh={async () => await readItemFromStorage()}
+        // refreshing={loading || false}
+        extraData={data}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={<NotesSliderFooter onPress={clearAll} data={data} goToAddNotes={goToAddNotes} />}
       />

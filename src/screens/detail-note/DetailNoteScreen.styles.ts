@@ -14,6 +14,7 @@ const styles = (theme: any) =>
     },
     fontFamily: {
       fontFamily: theme.typography.fontFamily.default,
+      color: '#131313',
     },
     headerTexts: {
       fontSize: theme.typography.size.S,

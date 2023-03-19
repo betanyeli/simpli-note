@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 6,
   },
-  firstLabel: { fontFamily: 'Manrope', fontSize: 40, marginHorizontal: 40 },
+  firstLabel: { fontFamily: 'Manrope', fontSize: 40, marginHorizontal: 40, color: '#131313' },
   labelContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -16,6 +16,10 @@ export const styles = StyleSheet.create({
     textAlign: 'right',
     fontSize: 40,
     marginRight: 30,
+    color: '#131313',
+  },
+  count: {
+    color: 'grey',
   },
 });
 

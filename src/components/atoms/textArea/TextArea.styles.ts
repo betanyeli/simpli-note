@@ -22,5 +22,6 @@ export default StyleSheet.create<Style>({
     margin: 16,
     height: '90%',
     backgroundColor: 'transparent',
+    color: '#131313',
   },
 });

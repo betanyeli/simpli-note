@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 const size = {
   S: 16,
   M: 20,

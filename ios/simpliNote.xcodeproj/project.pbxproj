@@ -30,8 +30,8 @@
 		CDD946F729C00DF900C668AA /* Icon-App-40x40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD946E729C00DF900C668AA /* Icon-App-40x40@3x.png */; };
 		CDD946F829C00DF900C668AA /* Icon-App-29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD946E829C00DF900C668AA /* Icon-App-29x29@2x.png */; };
 		CDD946FA29C00F8600C668AA /* simpli-note.png in Resources */ = {isa = PBXBuildFile; fileRef = CDD946F929C00F8600C668AA /* simpli-note.png */; };
-		8734814F51EE478B933F7804 /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5416CC0AD1843A0AFD8889B /* Manrope-Regular.ttf */; };
-		E712AC73410144AB8C9AC734 /* IcoMoon-Free.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1DB77420F734515BA00CF64 /* IcoMoon-Free.ttf */; };
+		CE72CECA0F0543E0A22192AC /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EF859920C22494989BD80B3 /* Manrope-Regular.ttf */; };
+		4BB0C04C549F4FEF9EE10DBD /* IcoMoon-Free.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D41C7120FAB44C77A9239A4E /* IcoMoon-Free.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +78,8 @@
 		CDD946E829C00DF900C668AA /* Icon-App-29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-29x29@2x.png"; sourceTree = "<group>"; };
 		CDD946F929C00F8600C668AA /* simpli-note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "simpli-note.png"; path = "../../../../Downloads/simpli-note.png"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		E5416CC0AD1843A0AFD8889B /* Manrope-Regular.ttf */ = {isa = PBXFileReference; name = "Manrope-Regular.ttf"; path = "../assets/fonts/Manrope/Manrope-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D1DB77420F734515BA00CF64 /* IcoMoon-Free.ttf */ = {isa = PBXFileReference; name = "IcoMoon-Free.ttf"; path = "../assets/fonts/icomoon/IcoMoon-Free.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8EF859920C22494989BD80B3 /* Manrope-Regular.ttf */ = {isa = PBXFileReference; name = "Manrope-Regular.ttf"; path = "../src/assets/fonts/Manrope/Manrope-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D41C7120FAB44C77A9239A4E /* IcoMoon-Free.ttf */ = {isa = PBXFileReference; name = "IcoMoon-Free.ttf"; path = "../src/assets/fonts/icomoon/IcoMoon-Free.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,8 +213,8 @@
 		EAAE06F481D94528B53A018C /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				E5416CC0AD1843A0AFD8889B /* Manrope-Regular.ttf */,
-				D1DB77420F734515BA00CF64 /* IcoMoon-Free.ttf */,
+				8EF859920C22494989BD80B3 /* Manrope-Regular.ttf */,
+				D41C7120FAB44C77A9239A4E /* IcoMoon-Free.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -332,8 +332,8 @@
 				CDD946F329C00DF900C668AA /* Icon-App-40x40@2x.png in Resources */,
 				CDD946EF29C00DF900C668AA /* ItunesArtwork@2x.png in Resources */,
 				CDD946FA29C00F8600C668AA /* simpli-note.png in Resources */,
-				8734814F51EE478B933F7804 /* Manrope-Regular.ttf in Resources */,
-				E712AC73410144AB8C9AC734 /* IcoMoon-Free.ttf in Resources */,
+				CE72CECA0F0543E0A22192AC /* Manrope-Regular.ttf in Resources */,
+				4BB0C04C549F4FEF9EE10DBD /* IcoMoon-Free.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

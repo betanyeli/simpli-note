@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 4,
     paddingHorizontal: 10,
   },
-  itemTitle: { fontSize: 20 },
+  itemTitle: { fontSize: 18, color: '#131313' },
   container: { flexShrink: 2 },
   contentContainer: { flexGrow: 2, paddingBottom: 20 },
 });

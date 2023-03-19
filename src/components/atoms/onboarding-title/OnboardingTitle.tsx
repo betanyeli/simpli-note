@@ -12,7 +12,7 @@ const OnboardingTitle = ({ total }: OnboardingTitleProps) => {
       <Text style={styles.firstLabel}>Simpli</Text>
       <View style={styles.labelContainer}>
         <Text style={styles.secondLabel}>Notes </Text>
-        {total && <Text>{`${total}/`}</Text>}
+        {total && <Text style={styles.count}>{`${total}/`}</Text>}
       </View>
     </View>
   );

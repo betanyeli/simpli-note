@@ -10,11 +10,10 @@ import getFormatDate from '../../helpers/getFormatDate'
 const DetailNoteScreen = ({ route }: any) => {
     const style = useThemedStyles(styles);
     const { note } = route.params;
-    console.log('NPTE', note)
     return (
         <View style={style.container}>
             <View style={style.header}>
-                <Text style={[style.fontFamily, style.headerTexts]}>{getFormatDate(note.date)}</Text>
+                <Text style={[style.fontFamily, style.headerTexts]}>{getFormatDate(note?.date)}</Text>
                 <Text style={[style.fontFamily, style.headerTexts]}>{`#${getRandomTag(tags)}`}</Text>
             </View>
             <Separator />

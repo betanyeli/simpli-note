@@ -13,8 +13,8 @@ export const styles = (theme: any) =>
       textAlign: 'center',
     },
     viewContainer: { backgroundColor: 'white', padding: 30, borderRadius: 10 },
-    message: { fontSize: theme.typography.size.S, marginBottom: 10 },
-    title: { fontSize: theme.typography.size.M, marginBottom: 10 },
+    message: { fontSize: theme.typography.size.S, marginBottom: 10, color: '#131313' },
+    title: { fontSize: theme.typography.size.M, marginBottom: 10, color: '#131313' },
     buttonsContainer: { flexDirection: 'row', justifyContent: 'space-between' },
   });
 

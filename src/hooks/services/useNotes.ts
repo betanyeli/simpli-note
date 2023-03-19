@@ -1,7 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import AsyncStorage, { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { generateId } from '../../helpers/generateId';
-import { useNavigation } from '@react-navigation/native';
 
 export type Note = {
   id: number;
@@ -17,7 +16,6 @@ export enum InfoResponse {
 
 const useNotes = () => {
   const { setItem, getItem } = useAsyncStorage('@notes');
-  const navigation = useNavigation();
   const [newData, setNewData] = useState<Note[]>([
     {
       id: 1,
@@ -41,18 +39,13 @@ const useNotes = () => {
         date: new Date(),
       };
       const mergedItems = JSON.stringify([...newData, parsedItems]);
-      console.log(mergedItems);
-      newData && (await setItem(mergedItems));
-      //setShowInfoResponse(InfoResponse.SUCCESS);
+      newData && !emptyInputs && (await setItem(mergedItems));
     } catch (error) {
-      //setShowInfoResponse(InfoResponse.ERROR);
       console.log(error);
     } finally {
       setTimeout(() => {
         setLoading(false);
       }, 300);
-
-      // navigation.goBack();
     }
   };
 
