@@ -20,6 +20,12 @@ As "simpli" as its name. Use 💫Simpli-note💫  to quickly create your notes..
 - Detail notes
 - Clear notes
 - Back button save support V1
+- Tags (View only)
+- Custom components
+  - Modal
+  - Tags
+  - Snackbar
+- Unit test (Snapshots) V1
 
 
 ##  🔜 Roadmap
@@ -29,8 +35,23 @@ As "simpli" as its name. Use 💫Simpli-note💫  to quickly create your notes..
 - Skeleton or loaders
 - Android icons support.
 
+## 🛠 Tech Stack 🛠
+- React Native v0.71.4
+- Async Storage v1.17.11
+- React navigation v6
+- TypeScript v4.8.4
+- Jest
+- React native testing library
 
-## Run Locally
+## 🖌 UI Inspiration
+- Logo: Inspired in *Mainteny* 🇩🇪 assets and builded in Figma.
+- SplashScreen: Inspired in *Mainteny* 🇩🇪 assets and builded in Figma.
+- Color palette: *Mainteny* 🇩🇪 UI Colors.
+- UI [Notes Mobile App](https://dribbble.com/shots/20654814-Notes-Mobile-IOS-App)
+
+
+
+## 🚀 Run Locally
 
 Clone the project
 
@@ -82,7 +103,7 @@ Or run linter
 ```
 
 
-## Deployment
+## 🚀 Deployment 🚀
 
 To generate APK of this project run
 
@@ -99,11 +120,11 @@ and then
 ```
 
 
-## Author
+## 👩🏻‍💻 Author 👩🏻‍💻
 
 Develop with love by 💕[@Beta](https://www.github.com/betanyeli)💕
 
 
 ## Feedback
 
-🙉Your feedback is my salary🙉. If you have any comments, suggestions, let me know 🪐
+🙉*Your feedback is my salary*🙉, just kidding! . If you have any comments, suggestions, let me know 🪐
